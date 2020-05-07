@@ -1,0 +1,25 @@
+import math
+
+def prime_finder(n):
+
+    print (1, 2)# initialize the list of primes with 2
+    
+    current = 3 # now we start checking with 3
+    counter = 1 # counter for number of primes discovered thus far
+    
+    while counter < n:
+
+        max_factor = int(math.sqrt(current)) # create upper bound for numbers to divide current
+
+        is_prime = True # assume prime for now
+
+        # checks for divisibility
+        for div in range(2, max_factor+1):
+            if current % div == 0:
+                is_prime = False
+
+        if is_prime:
+            counter += 1
+            print (counter, current)
+
+        current += 2 # checks next odd number since 2 is the only even prime
